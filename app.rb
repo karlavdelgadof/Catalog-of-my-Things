@@ -1,3 +1,5 @@
+require 'colorize'
+
 class App
   def options
     [

@@ -17,7 +17,7 @@ class Source
 
     def self.list_all_sources(sources)
         sources each do |source|
-            puts "- Name: #{source.name}"
+            puts "- [#{source.item.class}] Name: #{source.name}"
         end
     end
 end

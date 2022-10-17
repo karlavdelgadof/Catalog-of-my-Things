@@ -1,6 +1,17 @@
 require 'colorize'
 
 class App
+	def initialize()
+    @books = []
+    @albums = []
+    @movies = []
+		@games = []
+		@labels = []
+		@genres = []
+		@sources = []
+		@authors = []
+  end
+
   def options
     [
       '[1] => List all books',

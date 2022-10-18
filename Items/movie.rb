@@ -1,5 +1,5 @@
 require_relative 'item'
-require './source/source'
+require './properties/source'
 
 class Movie < Item
   def initialize(publish_date, silent, source)
@@ -12,17 +12,14 @@ class Movie < Item
     source.movies.push(self) unless source.movies.include?(self)
   end
 
-  def self.lits_all_movies(movies)
+  def self.list_all_movies(movies)
+    puts 'No movies added, please add a movie by using the list of options.' if movies.empty?
     movies.each do |movie|
       puts "Publish: #{movie.publish_date}  Source: #{movie.source.name} "
     end    
   end
 
   def self.create_movie(sources)
-    print "Author\n\nFirst name:"
-    author_first_name = gets.chomp
-    print "\n\nLast name: "
-    author_last_name = gets.chomp
     print 'Enter Publish date in the following format [m/d/y]: '
     date = gets.chomp
     print 'Is the movie silent? [Y/N]: '
@@ -32,6 +29,7 @@ class Movie < Item
     selected_source = gets.chomp
 
     source = Source.new(selected_source)
+    sources << source
     new(date, is_silent, source)
   end
     

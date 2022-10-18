@@ -2,10 +2,12 @@ require_relative 'item'
 require './source/source'
 
 class Movie < Item
-  def initialize(publish_date, silent, source)
+  attr_accessor :title, :silent, :source
+  def initialize(publish_date, title, silent, source)
     super(publish_date)
     @silent = silent
     @source = source
+    @title = title
   end
 
   def add_source(source)
@@ -14,15 +16,13 @@ class Movie < Item
 
   def self.lits_all_movies(movies)
     movies.each do |movie|
-      puts "Publish: #{movie.publish_date}  Source: #{movie.source.name} "
+      puts "Title: #{movie.title} Publish date: #{movie.publish_date}  Source: #{movie.source.name}\n\n"
     end    
   end
 
   def self.create_movie(sources)
-    print "Author\n\nFirst name:"
-    author_first_name = gets.chomp
-    print "\n\nLast name: "
-    author_last_name = gets.chomp
+    print 'Title of the movie: '
+    title = gets.chomp
     print 'Enter Publish date in the following format [m/d/y]: '
     date = gets.chomp
     print 'Is the movie silent? [Y/N]: '
@@ -32,7 +32,7 @@ class Movie < Item
     selected_source = gets.chomp
 
     source = Source.new(selected_source)
-    new(date, is_silent, source)
+    new(date, title, is_silent, source)
   end
     
   private

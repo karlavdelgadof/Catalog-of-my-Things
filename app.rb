@@ -1,4 +1,5 @@
 require 'colorize'
+require './Items/movie'
 
 class App
 	def initialize()
@@ -59,7 +60,7 @@ class App
     when '2'
       list_all_music_albums
     when '3'
-      lits_all_movies
+      Movie.lits_all_movies(@movies)
     when '4'
       list_all_games
     when '5'
@@ -74,8 +75,10 @@ class App
       create_book
     when '10'
       create_music_album
-    when '11'
-      create_movie
+    when '11' 
+			movie= Movie.create_movie(@sources)
+      @movies << movie
+      puts "\n\nMovie added successfully!\n\n".colorize(color: :green).italic if @movies.include?(movie)
     when '12'
       create_game
     end

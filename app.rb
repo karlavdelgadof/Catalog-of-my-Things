@@ -1,5 +1,8 @@
 require 'colorize'
 require './Items/movie'
+require './Items/music_album'
+require './properties/genre'
+require './properties/source'
 
 class App
 	def initialize()
@@ -58,23 +61,25 @@ class App
     when '1'
       list_all_books
     when '2'
-      list_all_music_albums
+      MusicAlbum.list_all_albums(@albums)
     when '3'
-      Movie.lits_all_movies(@movies)
+      Movie.list_all_movies(@movies)
     when '4'
       list_all_games
     when '5'
-      list_all_genres
+      Genre.list_all_genres(@genres)
     when '6'
       list_all_labels
     when '7'
       list_all_authors
     when '8'
-      list_all_sources
+      Source.list_all_sources(@sources)
     when '9'
       create_book
     when '10'
-      create_music_album
+      album = MusicAlbum.create_album(@genres)
+      @albums << album
+      puts "\n\nMusic album added successfully!\n\n".colorize(color: :green).italic if @albums.include?(album)
     when '11' 
 			movie= Movie.create_movie(@sources)
       @movies << movie

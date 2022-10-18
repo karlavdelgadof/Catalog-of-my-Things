@@ -2,26 +2,38 @@ require 'securerandom'
 require 'date'
 
 class Item
-  attr_accessor :id, :genre, :author, :source, :label, :publish_date, :archived
-  def initialize(genre, author, source, label, publish_date)
+  attr_accessor :id, :publish_date, :archived, :source, :genre, :label, :author
+
+  def initialize(publish_date)
     @id = SecureRandom.random_number(1000)
-    @genre = genre
-    @author = author
-    @source = source
-    @label = label
     @publish_date = Date.strptime(publish_date, '%m/%d/%Y')
     @current_date = DateTime.now
     @archived = false
   end
 
-  def move_to_archive(archived)
-    archived = can_be_archived?
+  def add_source(source)
+    @source = source
   end
 
-  private 
+  def add_genre(genre)
+    @genre = genre
+  end
+
+  def add_label(label)
+    @label = label
+  end
+
+  def add_author(author)
+    @author = author
+  end
+
+  def move_to_archive
+    @archived = can_be_archived?
+  end
+
+  private
 
   def can_be_archived?
     (@current_date.year - @publish_date) > 10
   end
-
 end

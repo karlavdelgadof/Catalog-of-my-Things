@@ -1,15 +1,17 @@
 require 'colorize'
+require_relative './Game/game'
+require_relative './author'
 
 class App
-	def initialize()
+  def initialize()
     @books = []
     @albums = []
     @movies = []
-		@games = []
-		@labels = []
-		@genres = []
-		@sources = []
-		@authors = []
+    @games = []
+    @labels = []
+    @genres = []
+    @sources = []
+    @authors = []
   end
 
   def options
@@ -61,13 +63,13 @@ class App
     when '3'
       lits_all_movies
     when '4'
-      list_all_games
+      Game.list_all_games(@games)
     when '5'
       list_all_genres
     when '6'
       list_all_labels
     when '7'
-      list_all_authors
+      Author.list_all_authors(@authors)
     when '8'
       list_all_sources
     when '9'
@@ -77,7 +79,9 @@ class App
     when '11'
       create_movie
     when '12'
-      create_game
+      game = Game.create_game(@authors)
+      @games << game
+      puts "\n\n Game added successfully!\n\n".colorize(color: :green).italic if @games.include?(game)
     end
   end
 end

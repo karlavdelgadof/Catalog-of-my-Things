@@ -7,12 +7,12 @@ class Source
     def initialize(name)
         @id = SecureRandom.random_number(1000)
         @name = name
-        @items = []
+        @movies = []
     end
     
-    def add_item(item)
-        @items << item unless @items.include?(item)
-        item.source = self
+    def add_movie(movie)
+        @movies << movie unless @movies.include?(movie)
+        movie.source = self
     end
 
     def self.list_all_sources(sources)

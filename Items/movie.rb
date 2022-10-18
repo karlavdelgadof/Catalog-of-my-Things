@@ -3,6 +3,7 @@ require './source/source'
 
 class Movie < Item
   attr_accessor :title, :silent, :source
+
   def initialize(publish_date, title, silent, source)
     super(publish_date)
     @silent = silent
@@ -17,10 +18,10 @@ class Movie < Item
   def self.lits_all_movies(movies)
     movies.each do |movie|
       puts "Title: #{movie.title} Publish date: #{movie.publish_date}  Source: #{movie.source.name}\n\n"
-    end    
+    end
   end
 
-  def self.create_movie(sources)
+  def self.create_movie(_sources)
     print 'Title of the movie: '
     title = gets.chomp
     print 'Enter Publish date in the following format [m/d/y]: '
@@ -34,9 +35,9 @@ class Movie < Item
     source = Source.new(selected_source)
     new(date, title, is_silent, source)
   end
-    
+
   private
-    
+
   def can_be_archived?
     super || @silet
   end

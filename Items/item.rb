@@ -3,6 +3,7 @@ require 'date'
 
 class Item
   attr_accessor :id, :publish_date, :archived, :source, :genre, :label, :author
+
   def initialize(publish_date)
     @id = SecureRandom.random_number(1000)
     @publish_date = Date.strptime(publish_date, '%m/%d/%Y')
@@ -26,14 +27,13 @@ class Item
     @author = author
   end
 
-  def move_to_archive(archived)
-    archived = can_be_archived?
+  def move_to_archive()
+    @archived = can_be_archived?
   end
 
-  private 
+  private
 
   def can_be_archived?
     (@current_date.year - @publish_date) > 10
   end
-
 end

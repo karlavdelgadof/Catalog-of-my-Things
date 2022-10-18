@@ -2,15 +2,15 @@ require 'colorize'
 require './Items/movie'
 
 class App
-	def initialize()
+  def initialize()
     @books = []
     @albums = []
     @movies = []
-		@games = []
-		@labels = []
-		@genres = []
-		@sources = []
-		@authors = []
+    @games = []
+    @labels = []
+    @genres = []
+    @sources = []
+    @authors = []
   end
 
   def options
@@ -75,8 +75,8 @@ class App
       create_book
     when '10'
       create_music_album
-    when '11' 
-			movie= Movie.create_movie(@sources)
+    when '11'
+      movie = Movie.create_movie(@sources)
       @movies << movie
       puts "\n\nMovie added successfully!\n\n".colorize(color: :green).italic if @movies.include?(movie)
     when '12'

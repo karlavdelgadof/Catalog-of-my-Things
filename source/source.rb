@@ -16,6 +16,7 @@ class Source
     end
 
     def self.list_all_sources(sources)
+        puts 'No sources found.' if sources.empty? 
         sources each do |source|
             puts "- [#{source.item.class}] Name: #{source.name}"
         end

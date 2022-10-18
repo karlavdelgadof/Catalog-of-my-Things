@@ -3,7 +3,7 @@ require 'date'
 
 class Item
   attr_accessor :id, :publish_date, :archived, :source, :genre, :label, :author
-  def initialize(publish_date)
+  def initialize(publish_date, archived)
     @id = SecureRandom.random_number(1000)
     @publish_date = Date.strptime(publish_date, '%m/%d/%Y')
     @current_date = DateTime.now

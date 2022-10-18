@@ -3,6 +3,8 @@ require './Items/movie'
 require './Items/music_album'
 require './properties/genre'
 require './properties/source'
+require './Items/book'
+require './properties/label'
 
 class App
 	def initialize()
@@ -59,7 +61,7 @@ class App
   def check_selection(response)
     case response
     when '1'
-      list_all_books
+      Book.list_all_books(@books)
     when '2'
       MusicAlbum.list_all_albums(@albums)
     when '3'
@@ -69,13 +71,15 @@ class App
     when '5'
       Genre.list_all_genres(@genres)
     when '6'
-      list_all_labels
+      Label.list_all_labels(@labels)
     when '7'
       list_all_authors
     when '8'
       Source.list_all_sources(@sources)
     when '9'
-      create_book
+      book = Book.create_book(@labels)
+      @books << book
+      puts "\n\nBook added successfully!\n\n".colorize(color: :green).italic if @books.include?(book)
     when '10'
       album = MusicAlbum.create_album(@genres)
       @albums << album

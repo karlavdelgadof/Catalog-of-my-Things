@@ -1,7 +1,6 @@
 require 'colorize'
-require_relative './Game/game'
+require_relative './Items/game'
 require_relative './author'
-
 class App
   def initialize()
     @books = []

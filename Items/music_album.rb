@@ -1,5 +1,8 @@
-require_relative 'item'
+require 'colorize'
+require './Items/item'
 require './properties/genre'
+require './helper-classes/input_validation'
+require 'date'
 
 class MusicAlbum < Item
   attr_accessor :title, :on_spotify, :genre
@@ -22,11 +25,20 @@ class MusicAlbum < Item
     end    
   end
 
+  def self.valid_date?(date)
+    date_format = '%d/%m/%Y'
+    DateTime.strptime(date, date_format)
+    true
+  rescue ArgumentError
+    false
+  end
+
   def self.create_album(genres)
     print 'Title: '
     title = gets.chomp
-    print 'Enter release date in the following format [m/d/y]: '
+    print 'Enter release date in the following format [dd/mm/yyyy]: '
     date = gets.chomp
+    date = InputValidation.get_date(date) 
     print 'Genre: '
     genre_input = gets.chomp
     print 'Is the music album on Spotify? [Y/N]: '
@@ -38,9 +50,9 @@ class MusicAlbum < Item
     genres << genre
     new(date, title, genre, is_on_spotify)
   end
-    
+
   private
-    
+
   def can_be_archived?
     @archived = super && @on_spotify
   end

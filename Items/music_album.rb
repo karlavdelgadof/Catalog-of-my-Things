@@ -25,14 +25,6 @@ class MusicAlbum < Item
     end    
   end
 
-  def self.valid_date?(date)
-    date_format = '%d/%m/%Y'
-    DateTime.strptime(date, date_format)
-    true
-  rescue ArgumentError
-    false
-  end
-
   def self.create_album(genres)
     print 'Title: '
     title = gets.chomp

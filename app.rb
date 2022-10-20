@@ -1,7 +1,9 @@
 require 'colorize'
 require './Items/movie'
+require_relative './source/source'
 require_relative './src/user_input'
 require_relative './src/user_output'
+
 class App
   def initialize()
     @books = []
@@ -33,7 +35,7 @@ class App
   end
 
   def run
-    UserOutput.load_data(@movies)
+    UserOutput.load_data(@movies, @sources)
     user_response = 0
     puts "\n\nWelcome to the Catalog of my Things!\n\n".colorize(color: :green).bold
 
@@ -72,7 +74,7 @@ class App
     when '7'
       list_all_authors
     when '8'
-      list_all_sources
+      Source.list_all_sources(@sources)
     when '9'
       create_book
     when '10'
@@ -87,6 +89,7 @@ class App
   end
 
   def save_files
-    UserInput.write_movie(@movies)
+    UserInput.write_movies(@movies)
+    UserInput.save_sources(@sources)
   end
 end

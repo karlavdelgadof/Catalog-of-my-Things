@@ -3,6 +3,9 @@ require './Items/movie'
 require './Items/music_album'
 require './properties/genre'
 require './properties/source'
+require './data-storage/user_input'
+require './data-storage/user_output'
+
 
 class App
 	def initialize()
@@ -35,6 +38,7 @@ class App
   end
 
   def run
+    UserOutput.load_data(@albums, @genres)
     user_response = 0
     puts "\n\nWelcome to the Catalog of my Things!\n\n".colorize(color: :green).bold
 
@@ -54,6 +58,7 @@ class App
     end
 
     puts "Thank you for using this app!\n\n".colorize(color: :cyan).bold if user_response == '13'
+    UserInput.save_data(@albums, @genres)
   end
 
   def check_selection(response)

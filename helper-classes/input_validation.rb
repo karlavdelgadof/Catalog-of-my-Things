@@ -6,7 +6,9 @@ class InputValidation
       puts "\n\nPlease enter a valid date according to the format.".colorize(color: :yellow).bold
       puts "Enter release date in the following format [dd/mm/yyyy]: "
       date = gets.chomp
+      date = valid_date?(date) ? date : valid_date?(date)
     end
+    return date
   end
 
   def self.valid_date?(date)

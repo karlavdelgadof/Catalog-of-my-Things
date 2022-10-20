@@ -17,8 +17,8 @@ class Movie < Item
 
   def self.list_all_movies(movies)
     puts 'No movies added, please add a movie by using the list of options.' if movies.empty?
-    movies.each do |movie|
-      puts "Publish: #{movie.publish_date} Title: #{movie.title}  Source: #{movie.source.name} "
+    movies.each_with_index do |movie, index|
+      puts "#{index + 1}) Title: #{movie.title}  Publish date: #{movie.publish_date}   Source: #{movie.source.name} "
     end
   end
 
@@ -41,6 +41,6 @@ class Movie < Item
   private
 
   def can_be_archived?
-    super || @silet
+    super || @silent == 'yes'
   end
 end

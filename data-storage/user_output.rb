@@ -6,7 +6,8 @@ class UserOutput
 
     object = JSON.parse(File.read('./json/albums.json'))
     object.each do |album|
-      album_json = MusicAlbum.new(album['release_date'], album['title'], album['genre'], album['on_spotify'])
+      genre = Genre.new(album['genre'])
+      album_json = MusicAlbum.new(album['release_date'], album['title'], genre, album['on_spotify'])
       albums << album_json
     end
   end

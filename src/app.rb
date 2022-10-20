@@ -1,6 +1,9 @@
 require 'colorize'
 require_relative './Items/game'
 require_relative './author'
+require_relative './user_input'
+require_relative './user_output'
+
 class App
   def initialize()
     @books = []
@@ -32,6 +35,7 @@ class App
   end
 
   def run
+    UserOutput.load_data(@games, @authors)
     user_response = 0
     puts "\n\nWelcome to the Catalog of my Things!\n\n".colorize(color: :green).bold
 
@@ -50,6 +54,7 @@ class App
       check_selection(user_response)
     end
 
+    save_files
     puts "Thank you for using this app!\n\n".colorize(color: :cyan).bold if user_response == '13'
   end
 
@@ -82,5 +87,10 @@ class App
       @games << game
       puts "\n\n Game added successfully!\n\n".colorize(color: :green).italic if @games.include?(game)
     end
+  end
+
+  def save_files
+    UserInput.write_game(@games)
+    UserInput.write_author(@authors)
   end
 end

@@ -1,13 +1,15 @@
 require 'securerandom'
+require 'date'
 
 class Item
-  attr_accessor :id, :publish_date, :archived, :source, :genre, :label, :author
+  attr_accessor :id, :publish_date, :archived, :source, :genre, :label, :author, :title
 
-  def initialize(publish_date)
+  def initialize(publish_date, title)
     @id = SecureRandom.random_number(1000)
-    @publish_date = Date.strptime(publish_date, '%m/%d/%Y')
+    @publish_date = publish_date
     @current_date = DateTime.now
-    @archived = false
+    @archived = archived
+    @title = title
   end
 
   def add_source(source)

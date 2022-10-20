@@ -16,7 +16,7 @@ class Movie < Item
     puts 'No movies added, please add a movie by using the list of options.' if movies.empty?
     movies.each do |movie|
       puts "Publish: #{movie.publish_date}  Source: #{movie.source.name} "
-    end    
+    end
   end
 
   def self.create_movie(sources)
@@ -32,9 +32,9 @@ class Movie < Item
     sources << source
     new(date, is_silent, source)
   end
-    
+
   private
-    
+
   def can_be_archived?
     super || @silet
   end

@@ -5,17 +5,19 @@ require './properties/genre'
 require './properties/source'
 require './Items/book'
 require './properties/label'
+require './user_input'
+require './user_output'
 
 class App
-	def initialize()
+  def initialize()
     @books = []
     @albums = []
     @movies = []
-		@games = []
-		@labels = []
-		@genres = []
-		@sources = []
-		@authors = []
+    @games = []
+    @labels = []
+    @genres = []
+    @sources = []
+    @authors = []
   end
 
   def options
@@ -37,6 +39,7 @@ class App
   end
 
   def run
+    UserOutput.load_data(@books, @labels)
     user_response = 0
     puts "\n\nWelcome to the Catalog of my Things!\n\n".colorize(color: :green).bold
 
@@ -54,7 +57,7 @@ class App
       puts "\n\n"
       check_selection(user_response)
     end
-
+    save_files
     puts "Thank you for using this app!\n\n".colorize(color: :cyan).bold if user_response == '13'
   end
 
@@ -84,12 +87,17 @@ class App
       album = MusicAlbum.create_album(@genres)
       @albums << album
       puts "\n\nMusic album added successfully!\n\n".colorize(color: :green).italic if @albums.include?(album)
-    when '11' 
-			movie= Movie.create_movie(@sources)
+    when '11'
+      movie = Movie.create_movie(@sources)
       @movies << movie
       puts "\n\nMovie added successfully!\n\n".colorize(color: :green).italic if @movies.include?(movie)
     when '12'
       create_game
     end
+  end
+
+  def save_files
+    UserInput.write_book(@books)
+    UserInput.write_label(@labels)
   end
 end

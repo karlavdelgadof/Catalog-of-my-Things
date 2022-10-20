@@ -1,38 +1,40 @@
 require_relative 'item'
-require './source/source'
+require_relative '../source/source'
+require_relative '../src/input_validation'
 
 class Movie < Item
-  attr_accessor :title, :silent, :source
+  attr_accessor :source, :silent
 
   def initialize(publish_date, title, silent, source)
-    super(publish_date)
+    super(publish_date, title)
     @silent = silent
     @source = source
-    @title = title
   end
 
   def add_source(source)
     source.movies.push(self) unless source.movies.include?(self)
   end
 
-  def self.lits_all_movies(movies)
+  def self.list_all_movies(movies)
+    puts 'No movies added, please add a movie by using the list of options.' if movies.empty?
     movies.each do |movie|
-      puts "Title: #{movie.title} Publish date: #{movie.publish_date}  Source: #{movie.source.name}\n\n"
+      puts "Publish: #{movie.publish_date} Title: #{movie.title}  Source: #{movie.source.name} "
     end
   end
 
-  def self.create_movie(_sources)
-    print 'Title of the movie: '
+  def self.create_movie(sources)
+    print 'Enter the movie title: '
     title = gets.chomp
-    print 'Enter Publish date in the following format [m/d/y]: '
+    print 'Enter Publish date in the following format [dd/mm/y]: '
     date = gets.chomp
-    print 'Is the movie silent? [Y/N]: '
+    date = InputValidation.get_date(date)
+    print 'Is the movie silent? [Yes/No]: '
     is_silent = gets.chomp
-    is_silent = is_silent.downcase == 'y'
+    is_silent = is_silent.downcase
     print 'Source: '
     selected_source = gets.chomp
-
     source = Source.new(selected_source)
+    sources << source
     new(date, title, is_silent, source)
   end
 

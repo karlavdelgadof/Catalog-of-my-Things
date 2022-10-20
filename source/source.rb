@@ -2,7 +2,7 @@ require 'securerandom'
 
 class Source
   attr_accessor :id, :name
-  attr_reader :items
+  attr_reader :movies
 
   def initialize(name)
     @id = SecureRandom.random_number(1000)

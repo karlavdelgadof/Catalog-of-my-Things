@@ -1,6 +1,7 @@
 require 'colorize'
 require './Items/movie'
-
+require_relative './src/user_input'
+require_relative './src/user_output'
 class App
   def initialize()
     @books = []
@@ -32,6 +33,7 @@ class App
   end
 
   def run
+    UserOutput.load_data(@movies)
     user_response = 0
     puts "\n\nWelcome to the Catalog of my Things!\n\n".colorize(color: :green).bold
 
@@ -49,7 +51,7 @@ class App
       puts "\n\n"
       check_selection(user_response)
     end
-
+    save_files
     puts "Thank you for using this app!\n\n".colorize(color: :cyan).bold if user_response == '13'
   end
 
@@ -60,7 +62,7 @@ class App
     when '2'
       list_all_music_albums
     when '3'
-      Movie.lits_all_movies(@movies)
+      Movie.list_all_movies(@movies)
     when '4'
       list_all_games
     when '5'
@@ -82,5 +84,9 @@ class App
     when '12'
       create_game
     end
+  end
+
+  def save_files
+    UserInput.write_movie(@movies)
   end
 end

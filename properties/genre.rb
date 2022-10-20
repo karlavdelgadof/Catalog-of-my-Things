@@ -18,7 +18,7 @@ class Genre
     def self.list_all_genres(genres)
       puts 'No genres found, please add a new album.' if genres.empty?
       genres.each do |genre|
-            puts "+ #{genre.name}"
+            puts "+ #{genre.name}\n\n"
         end
     end
 end

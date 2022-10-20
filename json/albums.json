@@ -1,0 +1,16 @@
+[
+	{
+		"id": "920",
+		"title": "Aron",
+		"genre": "Rock",
+		"release_date": "03/03/2022",
+		"on_spotify": "true"
+	},
+	{
+		"id": "609",
+		"title": "Karla",
+		"genre": "Pop",
+		"release_date": "11/03/2003",
+		"on_spotify": "true"
+	}
+]

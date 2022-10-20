@@ -5,12 +5,11 @@ require './helper-classes/input_validation'
 require 'date'
 
 class MusicAlbum < Item
-  attr_accessor :title, :on_spotify, :genre
+  attr_accessor :on_spotify, :genre
   def initialize(publish_date, title, genre, on_spotify)
-    super(publish_date)
+    super(publish_date, title)
     @on_spotify = on_spotify
     @genre = genre
-    @title = title
     @archived = false
   end
 
@@ -30,7 +29,7 @@ class MusicAlbum < Item
     title = gets.chomp
     print 'Enter release date in the following format [dd/mm/yyyy]: '
     date = gets.chomp
-    date = InputValidation.get_date(date) 
+    date = InputValidation.get_date(date)
     print 'Genre: '
     genre_input = gets.chomp
     print 'Is the music album on Spotify? [Y/N]: '

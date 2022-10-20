@@ -1,8 +1,14 @@
 [
   {
-    "id": 642,
-    "publisher": "why",
-    "cover_state": "good",
-    "publish_date": "03/03/2003"
+    "id": 407,
+    "publisher": "good",
+    "cover_state": "04/04/2004",
+    "publish_date": "it is working"
+  },
+  {
+    "id": 426,
+    "publisher": "you did it",
+    "cover_state": "bad",
+    "publish_date": "05/05/2005"
   }
 ]

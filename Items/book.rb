@@ -21,7 +21,7 @@ class Book < Item
       puts 'No Book added yet'
     else
       books.each_with_index do |book, index|
-          puts "#{index + 1} ) Published: #{book.publisher}  Cover State: #{book.cover_state}  Publish Date: #{book.publish_date}\n\n  "
+        puts "#{index + 1} ) Published: #{book.publisher}  Cover State: #{book.cover_state}  Publish Date: #{book.publish_date}\n\n  "
       end
     end
   end
@@ -32,7 +32,7 @@ class Book < Item
     print "Enter the book cover state ['good' or 'bad']: "
     cover_state = gets.chomp
     cover_state = cover_state.downcase
-    print 'Enter Publish date in the following format [m/d/y]: '
+    print 'Enter Publish date in the following format [dd/mm/y]: '
     date = gets.chomp
     date = valid_date?(date) ? date : valid_date?(date)
     while date == false
@@ -54,7 +54,7 @@ class Book < Item
     DateTime.strptime(date, date_format)
     true
   rescue ArgumentError
-      false
+    false
   end
 
   private

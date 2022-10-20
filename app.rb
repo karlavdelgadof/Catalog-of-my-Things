@@ -39,7 +39,7 @@ class App
   end
 
   def run
-    UserOutput.load_data(@books, @labels)
+    UserOutput.load_data(@books)
     user_response = 0
     puts "\n\nWelcome to the Catalog of my Things!\n\n".colorize(color: :green).bold
 
@@ -98,6 +98,6 @@ class App
 
   def save_files
     UserInput.write_book(@books)
-    UserInput.write_label(@labels)
+    # UserInput.write_label(@labels)
   end
 end

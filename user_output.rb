@@ -1,8 +1,8 @@
 class UserOutput
   def self.read_book(books)
-    return books unless File.exist?('./Book_Json/book.json')
+    return books unless File.exist?('./Bookdata/book.json')
 
-    object = JSON.parse(File.read('./Book_Json/book.json'))
+    object = JSON.parse(File.read('./Bookdata/book.json'))
     object.each do |book|
       data_book = Book.new(book['publisher'], book['cover_state'], book['publish_date'], book['label'])
       books << data_book
@@ -10,11 +10,11 @@ class UserOutput
   end
 
   def self.read_label(labels)
-    return labels unless File.exist?('./Book_Json/label.json')
+    return labels unless File.exist?('./Bookdata/label.json')
 
-    object = JSON.parse(File.read('./Book_Json/label.json'))
+    object = JSON.parse(File.read('./Bookdata/label.json'))
     object.each do |label|
-      data_label = Label.new(label['publisher'], label['cover_state'], label['publish_date'], label['label'])
+      data_label = Label.new(label['title'], label['colo'])
       labels << data_label
     end
   end

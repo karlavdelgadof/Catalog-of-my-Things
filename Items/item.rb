@@ -4,7 +4,7 @@ require 'date'
 class Item
   attr_accessor :id, :publish_date, :archived, :source, :genre, :label, :author
 
-  def initialize(publish_date, archived)
+  def initialize(publish_date, _archived)
     @id = SecureRandom.random_number(1000)
     @publish_date = publish_date
     @current_date = DateTime.now
@@ -27,7 +27,7 @@ class Item
     @author = author
   end
 
-  def move_to_archive(archived)
+  def move_to_archive(_archived)
     @archived = can_be_archived?
   end
 

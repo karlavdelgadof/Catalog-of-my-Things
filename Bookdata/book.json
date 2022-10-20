@@ -1,14 +1,26 @@
 [
   {
-    "id": 407,
-    "publisher": "good",
-    "cover_state": "04/04/2004",
-    "publish_date": "it is working"
+    "id": 208,
+    "publisher": "it is working",
+    "cover_state": "good",
+    "publish_date": "04/04/2004"
   },
   {
-    "id": 426,
-    "publisher": "you did it",
-    "cover_state": "bad",
-    "publish_date": "05/05/2005"
+    "id": 905,
+    "publisher": "05/05/2005",
+    "cover_state": "you did it",
+    "publish_date": "bad"
+  },
+  {
+    "id": 478,
+    "publisher": "good",
+    "cover_state": "03/03/2003",
+    "publish_date": "Karla"
+  },
+  {
+    "id": 531,
+    "publisher": "Yorda",
+    "cover_state": "good",
+    "publish_date": "31/08/1993"
   }
 ]

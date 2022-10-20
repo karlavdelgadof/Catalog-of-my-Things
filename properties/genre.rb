@@ -12,7 +12,7 @@ class Genre
     
     def add_album(album)
         @albums << album unless @albums.include?(album)
-        album.source = self
+        album.genre = self
     end
 
     def self.list_all_genres(genres)

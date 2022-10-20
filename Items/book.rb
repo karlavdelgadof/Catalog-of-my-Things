@@ -1,5 +1,6 @@
 require_relative './item'
 require_relative '../properties/label'
+require_relative '../datecheck/InputValidation'
 
 class Book < Item
   attr_accessor :publisher, :cover_state, :label, :archived
@@ -21,7 +22,7 @@ class Book < Item
       puts 'No Book added yet'
     else
       books.each_with_index do |book, index|
-        puts "#{index + 1} ) Published: #{book.publisher}  Cover State: #{book.cover_state}  Publish Date: #{book.publish_date}\n\n  "
+        puts "#{index + 1} ) Publish Date: #{book.publish_date}   Published: #{book.publisher}   Cover State: #{book.cover_state}\n\n  "
       end
     end
   end
@@ -34,12 +35,7 @@ class Book < Item
     cover_state = cover_state.downcase
     print 'Enter Publish date in the following format [dd/mm/y]: '
     date = gets.chomp
-    date = valid_date?(date) ? date : valid_date?(date)
-    while date == false
-      puts "\n\nPlease enter a valid date according to the format.".colorize(color: :yellow).bold
-      puts "\n\nEnter release date in the following format [dd/mm/yyyy]: "
-      date = gets.chomp
-    end
+    date = InputValidation.get_date(date)
     print 'Enter the label title: '
     title = gets.chomp
     print 'Enter the label color: '
@@ -63,3 +59,4 @@ class Book < Item
     @archived = super || @cover_state == 'bad'
   end
 end
+

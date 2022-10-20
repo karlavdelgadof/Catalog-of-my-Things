@@ -10,6 +10,8 @@ class UserInput
       {
         id: book.id,
         publisher: book.publisher,
+        title: book.label.title,
+        color: book.label.color,
         cover_state: book.cover_state,
         publish_date: book.publish_date
       }

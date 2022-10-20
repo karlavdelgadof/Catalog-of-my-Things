@@ -1,26 +1,18 @@
 [
   {
-    "id": 208,
-    "publisher": "it is working",
+    "id": 75,
+    "publisher": "Karla",
+    "title": "that is generate from our family",
+    "color": "blue",
     "cover_state": "good",
-    "publish_date": "04/04/2004"
+    "publish_date": null
   },
   {
-    "id": 905,
-    "publisher": "05/05/2005",
-    "cover_state": "you did it",
-    "publish_date": "bad"
-  },
-  {
-    "id": 478,
-    "publisher": "good",
-    "cover_state": "03/03/2003",
-    "publish_date": "Karla"
-  },
-  {
-    "id": 531,
-    "publisher": "Yorda",
-    "cover_state": "good",
-    "publish_date": "31/08/1993"
+    "id": 994,
+    "publisher": "aron",
+    "title": "hello",
+    "color": "red",
+    "cover_state": "bad",
+    "publish_date": null
   }
 ]

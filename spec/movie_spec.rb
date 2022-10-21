@@ -2,6 +2,7 @@ require './source/source'
 require './Items/movie'
 
 describe Movie do
+
   before :each do
     @source = Source.new('Online Platform')
     @movie = Movie.new('11/05/1992', 'Pearl Harbor', 'yes', @source)
@@ -22,4 +23,5 @@ describe Movie do
     @movie.move_to_archive
     expect(@movie.archived).to be true
   end
+
 end

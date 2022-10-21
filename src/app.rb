@@ -1,5 +1,5 @@
 require 'colorize'
-require_relative './Items/game'
+require_relative '../Items/game'
 require_relative './author'
 require_relative './user_input'
 require_relative './user_output'

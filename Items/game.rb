@@ -1,5 +1,6 @@
 require_relative '../Items/item'
-require_relative '../validat_date/input_validation'
+require_relative '../src/input_validation'
+
 class Game < Item
   attr_accessor :publish_date, :last_played, :multiplayer
   attr_reader :id
@@ -19,6 +20,7 @@ class Game < Item
     title = gets.chomp
     print "Author\n\nFirst name:"
     author_first_name = gets.chomp
+    author_first_name += ' '
     print "\n\nLast name: "
     author_last_name = gets.chomp
     print 'Enter Publish date in the following format [dd/mm/yyyy]: '
@@ -39,18 +41,14 @@ class Game < Item
   def self.list_all_games(games)
     puts 'No games added, please add a game by using the list of options.' if games.empty?
     games.each do |game|
-      puts "Release date: #{game.publish_date}
+      puts "Title: #{game.title} Release date: #{game.publish_date}
       Author: #{game.author.first_name} #{game.author.last_name} Multiplayer: #{game.multiplayer}"
     end
   end
 
-  # def move_to_archive
-  #  @archived
-  # end
-
   private
 
   def can_be_archived?
-    @archived = super || @current_date.year - @last_palyed > 2
+    @archived = super || @current_date.year.to_i - @last_played.to_i > 2
   end
 end

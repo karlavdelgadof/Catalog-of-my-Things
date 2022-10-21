@@ -2,7 +2,7 @@ require 'securerandom'
 
 class Author
   attr_accessor :id, :first_name, :last_name
-  attr_reader :items
+  attr_reader :games
 
   def initialize(first_name, last_name)
     @id = SecureRandom.random_number(1000)

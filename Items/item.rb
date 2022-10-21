@@ -8,7 +8,7 @@ class Item
     @id = SecureRandom.random_number(1000)
     @publish_date = publish_date
     @current_date = DateTime.now
-    @archived = archived
+    @archived = false
     @title = title
   end
 
@@ -35,6 +35,6 @@ class Item
   private
 
   def can_be_archived?
-    (@current_date.year - @publish_date) > 10
+    (@current_date.year.to_i - @publish_date.to_i) > 10
   end
 end

@@ -1,7 +1,7 @@
 require 'fileutils'
 require 'json'
-require './Items/game'
-require './author'
+require_relative '../Items/game'
+require_relative './author'
 
 class UserInput
   SAVE_DATA = './Json/'.freeze

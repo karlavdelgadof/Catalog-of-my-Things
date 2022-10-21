@@ -25,7 +25,6 @@
 To get a local copy up and running follow these simple steps.:arrow_down:
 
 ### Prerequisites ✅
-- A web browser like Google Chrome.
 - A code editor like Visual Studio Code with Git and Ruby.
 - You can check if Git is installed by running the following command in the terminal: 
 
@@ -36,18 +35,19 @@ $ git --version
 Likewise for Ruby installation.
 
 ``` 
-$ ruby --version && irb
+$ ruby --version
 ``` 
 
 ### Setup
 
-Clone the repository using the GitHub this link [🔗](https://github.com/karlavdelgadof/Catalog-of-my-Things.git)
+1. Clone the GitHub repository using the  this link [🔗](https://github.com/karlavdelgadof/Catalog-of-my-Things.git)
+2. Checkout to the `dev` branch
+3. Run `$ bundle install` in your terminal to install all gems required to run the app.
 
 
 ### Test 
-In the terminal, you can try running ruby by using **IRB** or an extension in the case of VSCode like *Code runner*
 
-Kindly modify the files as needed.
+In the terminal, you can try running `ruby main.rb` or `./main.rb` to start the app and display the user options. Use the keyboard to input options.
 
 
 ## Authors :writing_hand:

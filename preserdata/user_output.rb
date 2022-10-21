@@ -4,8 +4,8 @@ class UserOutput
 
     object = JSON.parse(File.read('./Bookdata/book.json'))
     object.each do |book|
-      label = Label.new(book['title'], book['color'])
-      data_book = Book.new(book['publisher'], book['cover_state'], book['publish_date'], label)
+      label = Label.new(book['title_label'], book['color'])
+      data_book = Book.new(book['publisher'], book['title'], book['cover_state'], book['publish_date'], label)
       books << data_book
     end
   end

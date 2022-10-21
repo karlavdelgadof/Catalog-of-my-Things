@@ -9,8 +9,9 @@ class UserInput
     data_books = books.map do |book|
       {
         id: book.id,
+        title: book.title,
         publisher: book.publisher,
-        title: book.label.title,
+        title_label: book.label.title_label,
         color: book.label.color,
         cover_state: book.cover_state,
         publish_date: book.publish_date
@@ -26,7 +27,7 @@ class UserInput
     data_label = labels.map do |label|
       {
         id: label.id,
-        title: label.title,
+        title: label.title_label,
         color: label.color
       }
     end

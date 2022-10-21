@@ -1,18 +1,11 @@
 [
   {
-    "id": 75,
-    "publisher": "Karla",
-    "title": "that is generate from our family",
-    "color": "blue",
-    "cover_state": "good",
-    "publish_date": null
-  },
-  {
-    "id": 994,
-    "publisher": "aron",
-    "title": "hello",
-    "color": "red",
-    "cover_state": "bad",
-    "publish_date": null
+    "id": 702,
+    "title": "I hop",
+    "publisher": "good",
+    "title_label": "Karla",
+    "color": "Blue",
+    "cover_state": "03/10/2018",
+    "publish_date": "It is working"
   }
 ]

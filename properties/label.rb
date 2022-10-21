@@ -1,19 +1,19 @@
 require 'securerandom'
 
 class Label
-  attr_accessor :id, :title, :color
-  attr_reader :items
+  attr_accessor :id, :title_label, :color
+  attr_reader :books
 
-  def initialize(title, color)
+  def initialize(title_label, color)
     @id = SecureRandom.random_number(1000)
-    @title = title
+    @title_label = title_label
     @color = color
     @books = []
   end
 
   def add_book(book)
     @books << book unless @books.include?(book)
-    book.source = self
+    book.label = self
   end
 
   def self.list_all_labels(labels)

@@ -6,10 +6,10 @@ class Item
 
   def initialize(publish_date, title)
     @id = SecureRandom.random_number(1000)
-    @title = title
     @publish_date = publish_date
     @current_date = DateTime.now
     @archived = false
+    @title = title
   end
 
   def add_source(source)

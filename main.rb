@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require './app'
+require './src/app'
 
 def main
   app = App.new

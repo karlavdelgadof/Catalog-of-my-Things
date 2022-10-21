@@ -3,6 +3,10 @@ require './Items/movie'
 require_relative './source/source'
 require_relative './src/user_input'
 require_relative './src/user_output'
+require_relative '../Items/game'
+require_relative './author'
+require_relative './user_input'
+require_relative './user_output'
 
 class App
   def initialize()
@@ -35,7 +39,7 @@ class App
   end
 
   def run
-    UserOutput.load_data(@movies, @sources)
+    UserOutput.load_data(@games, @authors, @movies, @sources)
     user_response = 0
     puts "\n\nWelcome to the Catalog of my Things!\n\n".colorize(color: :green).bold
 
@@ -66,13 +70,13 @@ class App
     when '3'
       Movie.list_all_movies(@movies)
     when '4'
-      list_all_games
+      Game.list_all_games(@games)
     when '5'
       list_all_genres
     when '6'
       list_all_labels
     when '7'
-      list_all_authors
+      Author.list_all_authors(@authors)
     when '8'
       Source.list_all_sources(@sources)
     when '9'
@@ -84,12 +88,16 @@ class App
       @movies << movie
       puts "\n\nMovie added successfully!\n\n".colorize(color: :green).italic if @movies.include?(movie)
     when '12'
-      create_game
+      game = Game.create_game(@authors)
+      @games << game
+      puts "\n\n Game added successfully!\n\n".colorize(color: :green).italic if @games.include?(game)
     end
   end
 
   def save_files
     UserInput.write_movies(@movies)
     UserInput.save_sources(@sources)
+    UserInput.write_game(@games)
+    UserInput.write_author(@authors)
   end
 end

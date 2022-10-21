@@ -2,7 +2,9 @@ require 'json'
 require 'fileutils'
 require 'json'
 require_relative '../Items/game'
-require_relative './author'
+require_relative '../source/author'
+require_relative '../Items/movie'
+require_relative '../source/source'
 
 class UserInput
   SAVE_DATA = './datasave/'.freeze
@@ -34,7 +36,6 @@ class UserInput
     File.write('./datasave/sources.json', JSON.pretty_generate(sources_json, { indent: "\t", object_nl: "\n" }))
   end
 
-  SAVE_DATA = './Json/'.freeze
   def self.write_game(games)
     return if games.empty?
 

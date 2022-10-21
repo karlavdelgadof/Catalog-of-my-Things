@@ -22,7 +22,7 @@ class UserInput
     sources.each do |source|
       source = {
         id: source.id.to_s,
-        name: source.name,
+        name: source.name
       }
       sources_json << source
     end

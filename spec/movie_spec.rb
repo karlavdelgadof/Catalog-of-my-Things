@@ -1,7 +1,6 @@
 require './source/source'
 require './Items/movie'
 
-
 describe Movie do
   before :each do
     @source = Source.new('Online Platform')
@@ -13,7 +12,6 @@ describe Movie do
     expect(@movie.title).to eql 'Pearl Harbor'
     expect(@movie.source).to be @source
     expect(@movie.silent).to eql 'yes'
-
   end
 
   it 'Should be an object instance of the Movie class' do

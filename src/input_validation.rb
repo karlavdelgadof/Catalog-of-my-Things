@@ -9,7 +9,7 @@ class InputValidation
       date = gets.chomp
       date = valid_date?(date) ? date : valid_date?(date)
     end
-    return date
+    date
   end
 
   def self.valid_date?(date)

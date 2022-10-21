@@ -1,7 +1,6 @@
 require './source/source'
 require './Items/movie'
 
-
 describe Source do
   before :each do
     @source = Source.new('Movie Store')
@@ -11,7 +10,6 @@ describe Source do
   it 'Should equal the values provided to the constructor class' do
     expect(@source.name).to eql 'Movie Store'
     expect(@source.id).to eql @source.id
-
   end
 
   it 'Should be an object instance of the Source class' do

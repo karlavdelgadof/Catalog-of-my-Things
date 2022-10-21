@@ -1,6 +1,6 @@
 require_relative './item'
 require_relative '../properties/label'
-require_relative '../datecheck/input_validation'
+require_relative '../helper-classes/input_validation'
 
 class Book < Item
   attr_accessor :publisher, :cover_state, :label, :archived

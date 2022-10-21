@@ -64,12 +64,35 @@ class UserOutput
     end
   end
 
-  def self.load_data(games, authors, movies, sources, albums, genres)
+  def self.read_book(books)
+    return books unless File.exist?('./json/book.json')
+
+    object = JSON.parse(File.read('./json/book.json'))
+    object.each do |book|
+      label = Label.new(book['title_label'], book['color'])
+      data_book = Book.new(book['publisher'], book['title'], book['cover_state'], book['publish_date'], label)
+      books << data_book
+    end
+  end
+
+  def self.read_label(labels)
+    return labels unless File.exist?('./json/label.json')
+
+    object = JSON.parse(File.read('./json/label.json'))
+    object.each do |label|
+      data_label = Label.new(label['title'], label['color'])
+      labels << data_label
+    end
+  end
+
+  def self.load_data(games, authors, movies, sources, albums, genres, books, labels)
     read_game(games)
     read_author(authors)
     read_movie(movies)
     load_sources(sources)
     load_albums(albums)
     load_genres(genres)
+    read_book(books)
+    read_label(labels)
   end
 end

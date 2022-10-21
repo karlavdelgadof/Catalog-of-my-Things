@@ -10,7 +10,6 @@ require_relative '../properties/source'
 require_relative '../Items/book'
 require_relative '../properties/label'
 
-
 class App
   def initialize()
     @books = []
@@ -62,7 +61,6 @@ class App
     end
     save_files
     puts "Thank you for using this app!\n\n".colorize(color: :cyan).bold if user_response == '13'
-    UserInput.save_data(@albums, @genres)
   end
 
   def check_selection(response)

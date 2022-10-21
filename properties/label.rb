@@ -21,7 +21,7 @@ class Label
       puts 'Add book first to see label'
     else
       labels.each_with_index do |label, index|
-        puts "#{index + 1})  Title: #{label.title}  Color: #{label.color}\n\n "
+        puts "#{index + 1})  Title: #{label.title_label}  Color: #{label.color}\n\n "
       end
     end
   end

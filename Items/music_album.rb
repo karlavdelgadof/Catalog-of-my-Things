@@ -5,7 +5,7 @@ require './helper-classes/input_validation'
 require 'date'
 
 class MusicAlbum < Item
-  attr_accessor :on_spotify, :genre
+  attr_accessor :title, :on_spotify, :genre
 
   def initialize(publish_date, title, genre, on_spotify)
     super(publish_date, title)

@@ -124,9 +124,4 @@ class UserInput
     end
     File.write('./json/genres.json', JSON.pretty_generate(genres_json, { indent: "\t", object_nl: "\n" }))
   end
-
-  def self.save_data(albums, genres)
-    save_albums(albums)
-    save_genres(genres)
-  end
 end

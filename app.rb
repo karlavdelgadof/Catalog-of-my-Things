@@ -1,14 +1,14 @@
 require 'colorize'
-require_relative '../Items/movie'
-require_relative '../data-storage/user_input'
-require_relative '../data-storage/user_output'
-require_relative '../Items/game'
-require_relative '../properties/author'
-require_relative '../Items/music_album'
-require_relative '../properties/genre'
-require_relative '../properties/source'
-require_relative '../Items/book'
-require_relative '../properties/label'
+require_relative './Items/movie'
+require_relative './data-storage/user_input'
+require_relative './data-storage/user_output'
+require_relative './Items/game'
+require_relative './properties/author'
+require_relative './Items/music_album'
+require_relative './properties/genre'
+require_relative './properties/source'
+require_relative './Items/book'
+require_relative './properties/label'
 
 class App
   def initialize()
@@ -107,5 +107,7 @@ class App
     UserInput.write_author(@authors)
     UserInput.write_book(@books)
     UserInput.write_label(@labels)
+    UserInput.save_albums(@albums)
+    UserInput.save_genres(@genres)
   end
 end

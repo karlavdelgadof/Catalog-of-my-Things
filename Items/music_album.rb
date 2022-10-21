@@ -22,11 +22,11 @@ class MusicAlbum < Item
     puts 'No music albums added, please add an album by using the list of options.' if albums.empty?
     albums.each_with_index do |album, index|
       puts "#{[index + 1]} Title: #{album.title}  Release: #{album.publish_date}\n\n
-      Genre: #{album.genre.name}  Available on Spotify: #{
+      Genre: #{album.genre.name} Available on Spotify: #{
         if album.on_spotify
-          puts 'available'
+          'available'
         else
-          puts 'not available'
+          'not available'
         end}\n\n"
     end
   end

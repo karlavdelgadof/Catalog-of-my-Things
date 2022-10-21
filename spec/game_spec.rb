@@ -1,6 +1,6 @@
 require_relative '../Items/item'
 require_relative '../Items/game'
-require_relative '../source/author'
+require_relative '../properties/author'
 
 describe Game do
   before :each do

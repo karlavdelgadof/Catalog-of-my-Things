@@ -1,5 +1,5 @@
-require './source/source'
-require './Items/movie'
+require_relative '../properties/source'
+require_relative '../Items/movie'
 
 describe Source do
   before :each do

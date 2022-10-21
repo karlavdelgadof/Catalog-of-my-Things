@@ -16,12 +16,14 @@ CREATE TABLE source (
   name VARCHAR(150)
 )
 
+/* Create new author table */
 CREATE TABLE author (
     id BIGSERIAL NOT NULL PRIMARY KEY,
     first_name VARCHAR(150),
     last_name VARCHAR(150)
 )
 
+/* Create new game table */
 CREATE TABLE game (
     id BIGSERIAL NOT NULL PRIMARY KEY,
     genre_id INT,

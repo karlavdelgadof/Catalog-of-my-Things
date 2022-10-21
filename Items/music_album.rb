@@ -20,8 +20,8 @@ class MusicAlbum < Item
 
   def self.list_all_albums(albums)
     puts 'No music albums added, please add an album by using the list of options.' if albums.empty?
-    albums.each do |album|
-      puts "Title: #{album.title}  Release: #{album.publish_date}\n\n
+    albums.each_with_index do |album, index|
+      puts "#{[index + 1]} Title: #{album.title}  Release: #{album.publish_date}\n\n
       Genre: #{album.genre.name}  Available on Spotify: #{
         if album.on_spotify
           puts 'available'

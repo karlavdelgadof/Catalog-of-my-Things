@@ -1,6 +1,7 @@
 require_relative 'item'
 require_relative '../source/source'
 require_relative '../src/input_validation'
+require './properties/source'
 
 class Movie < Item
   attr_accessor :source, :silent

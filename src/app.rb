@@ -7,6 +7,11 @@ require_relative '../Items/game'
 require_relative '../source/author'
 require_relative './user_input'
 require_relative './user_output'
+require './Items/music_album'
+require './properties/genre'
+require './properties/source'
+require './data-storage/user_input'
+require './data-storage/user_output'
 
 class App
   def initialize()
@@ -39,7 +44,7 @@ class App
   end
 
   def run
-    UserOutput.load_data(@games, @authors, @movies, @sources)
+    UserOutput.load_data(@games, @authors, @movies, @sources, @albums, @genres)
     user_response = 0
     puts "\n\nWelcome to the Catalog of my Things!\n\n".colorize(color: :green).bold
 
@@ -59,6 +64,7 @@ class App
     end
     save_files
     puts "Thank you for using this app!\n\n".colorize(color: :cyan).bold if user_response == '13'
+    UserInput.save_data(@albums, @genres)
   end
 
   def check_selection(response)
@@ -66,13 +72,13 @@ class App
     when '1'
       list_all_books
     when '2'
-      list_all_music_albums
+      MusicAlbum.list_all_albums(@albums)
     when '3'
       Movie.list_all_movies(@movies)
     when '4'
       Game.list_all_games(@games)
     when '5'
-      list_all_genres
+      Genre.list_all_genres(@genres)
     when '6'
       list_all_labels
     when '7'
@@ -82,7 +88,9 @@ class App
     when '9'
       create_book
     when '10'
-      create_music_album
+      album = MusicAlbum.create_album(@genres)
+      @albums << album
+      puts "\n\nMusic album added successfully!\n\n".colorize(color: :green).italic if @albums.include?(album)
     when '11'
       movie = Movie.create_movie(@sources)
       @movies << movie

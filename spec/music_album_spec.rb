@@ -1,7 +1,6 @@
 require './Items/music_album'
 require './properties/genre'
 
-
 describe MusicAlbum do
   before :each do
     @genre = Genre.new('Country')
@@ -13,7 +12,6 @@ describe MusicAlbum do
     expect(@album.title).to eql 'Speak now'
     expect(@album.genre).to be @genre
     expect(@album.on_spotify).to be true
-
   end
 
   it 'Should be an object instance of the MusicAlbum class' do

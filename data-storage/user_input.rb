@@ -4,10 +4,10 @@ class UserInput
   def self.save_albums(albums)
     albums_json = []
     albums.each do |album|
-      album = { 
+      album = {
         id: album.id.to_s,
-        title: album.title, 
-        genre: album.genre.name, 
+        title: album.title,
+        genre: album.genre.name,
         release_date: album.publish_date,
         on_spotify: album.on_spotify.to_s
       }
@@ -21,7 +21,7 @@ class UserInput
     genres.each do |genre|
       genre = {
         id: genre.id.to_s,
-        name: genre.name,
+        name: genre.name
       }
       genres_json << genre
     end

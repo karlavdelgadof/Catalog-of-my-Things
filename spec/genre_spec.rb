@@ -1,7 +1,6 @@
 require './properties/genre'
 require './Items/music_album'
 
-
 describe Genre do
   before :each do
     @genre = Genre.new('Pop/Rock')
@@ -11,7 +10,6 @@ describe Genre do
   it 'Should equal the values provided to the constructor class' do
     expect(@genre.name).to eql 'Pop/Rock'
     expect(@genre.id).to eql @genre.id
-
   end
 
   it 'Should be an object instance of the MusicAlbum class' do

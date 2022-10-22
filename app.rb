@@ -101,7 +101,7 @@ class App
   end
 
   def save_files
-    Dir.mkdir("./json") unless Dir.exists?("./json")
+    FileUtils.mkdir_p('./json')
     UserInput.write_movies(@movies)
     UserInput.save_sources(@sources)
     UserInput.write_game(@games)
